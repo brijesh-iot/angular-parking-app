@@ -1,0 +1,17 @@
+{
+    "projectName": "amplifyparkingapp",
+    "version": "3.0",
+    "frontend": "javascript",
+    "javascript": {
+        "framework": "angular",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "dist\\AngularPwaPostOne",
+            "BuildCommand": "ng build --prod",
+            "StartCommand": "npm start"
+        }
+    },
+    "providers": [
+        "awscloudformation"
+    ]
+}

@@ -1,0 +1,83 @@
+<google-map
+  height="500px"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+<map-marker
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  ></map-marker>
+
+</google-map>
+
+<form [formGroup]="parkingSearchForm">
+    <h3>Get Parking Details</h3>
+
+    <table mat-table [dataSource]="parkingData" class="mat-elevation-z8">
+        
+        <ng-container matColumnDef="sr">
+            <th mat-header-cell *matHeaderCellDef> Sr. No </th>
+            <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.meter.address}} </td>
+        </ng-container>
+        <ng-container matColumnDef="isOccupied">
+            <th mat-header-cell *matHeaderCellDef> Is Available? </th>
+            <td mat-cell *matCellDef="let element"> {{element.isOccupied ? 'No' : 'Yes'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="startTime">
+            <th mat-header-cell *matHeaderCellDef> Start Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.parkingTime.startTime | date:'h:mm a z' }} </td>
+        </ng-container>
+        <ng-container matColumnDef="endTime">
+            <th mat-header-cell *matHeaderCellDef> End Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.parkingTime.endTime | date:'h:mm a z'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="meterNo">
+            <th mat-header-cell *matHeaderCellDef> Meter No </th>
+            <td mat-cell *matCellDef="let element"> {{element.meter.number}} </td>
+        </ng-container>
+        <ng-container matColumnDef="gps">
+            <th mat-header-cell *matHeaderCellDef> GPS Location </th>
+            <td mat-cell *matCellDef="let element">
+                 <a target="_blank" href='https://www.google.com/maps?q={{element.meter.location[0]}},{{element.meter.location[1]}}' >Map</a>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="batteryLife">
+            <th mat-header-cell *matHeaderCellDef> Battery Life </th>
+            <td mat-cell *matCellDef="let element"> {{element.deviceStatus.batteryLife}} </td>
+        </ng-container>
+        <ng-container matColumnDef="userCode">
+            <th mat-header-cell *matHeaderCellDef> User Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.userStatus.userCode}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!--
+        <ng-container matColumnDef="nodata">
+            <td colspan="7" align="center" mat-footer-row *matFooterCellDef [colSpan]="displayedColumns.length" 
+            style="text-align: center;"> <b> No Data Available </b> 
+            </td>
+          </ng-container>
+  
+         <tr mat-footer-row 
+           [hidden]="dataSource.data.length >0"
+          *matFooterRowDef="['nodata']">
+         </tr>
+        -->
+         
+
+    </table>
+
+</form>    
+
+

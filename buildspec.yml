@@ -1,0 +1,33 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12.x
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install -g @angular/cli
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - ng build --prod
+  post_build:
+    commands:
+      - pwd
+      - ls
+      - cd dist
+      - ls
+      - cd AngularPwaPostOne
+      - ls
+      - pwd
+      - echo '********** Name of S3 Bucket to deploy the Angular app **********'
+      - echo ${DEPLOY_BUCKET}
+      - echo '********** Name of CloudFront Distribution **********'
+      - echo ${DISTRIBUTION}
+      - aws s3 sync . s3://${DEPLOY_BUCKET}/
+      - aws s3 cp --cache-control="max-age=0, no-cache, no-store, must-revalidate" index.html s3://${DEPLOY_BUCKET}/
+      #- aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION} --paths index.html
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist

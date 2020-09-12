@@ -1,0 +1,42 @@
+<form [formGroup]="parkingSearchForm">
+  <table mat-table [dataSource]="parkingData" class="mat-elevation-z8">
+    <ng-container matColumnDef="sr">
+        <th mat-header-cell *matHeaderCellDef> Sr. No </th>
+        <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+    </ng-container>
+    <ng-container matColumnDef="parkingName">
+      <th mat-header-cell *matHeaderCellDef> Parking Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.parking_name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+    <ng-container matColumnDef="gps">
+        <th mat-header-cell *matHeaderCellDef> Parking Details </th>
+        <td mat-cell *matCellDef="let element">
+             <a routerLink= "/parking/getdetails/{{element.area_code}}"  > GO </a>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</form>
+
+<google-map
+  height="500px"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+<map-marker
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  ></map-marker>
+
+</google-map>
+

@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifyparkingapp-prod-135746-authRole",
+      "UnauthRoleArn": "arn:aws:iam::551061066810:role/amplify-amplifyparkingapp-prod-135746-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::551061066810:role/amplify-amplifyparkingapp-prod-135746-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-amplifyparkingapp-prod-135746-deployment",
+      "UnauthRoleName": "amplify-amplifyparkingapp-prod-135746-unauthRole",
+      "StackName": "amplify-amplifyparkingapp-prod-135746",
+      "StackId": "arn:aws:cloudformation:us-east-2:551061066810:stack/amplify-amplifyparkingapp-prod-135746/051ba640-d6a8-11eb-9037-069dec3dec38",
+      "AmplifyAppId": "d31q0q7m4iiam9"
+    }
+  },
+  "auth": {
+    "amplifyparkingapp644543dd": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyparkingapp-prod-135746-deployment/amplify-cfn-templates/auth/amplifyparkingapp644543dd-cloudformation-template.yml",
+        "logicalId": "authamplifyparkingapp644543dd"
+      },
+      "lastPushTimeStamp": "2021-06-26T18:05:27.182Z",
+      "output": {
+        "AppClientSecret": "5dgbv06ndji7denjukbj1ra2ua5beeiucia67ql4fo4kkhmc7nk",
+        "UserPoolId": "us-east-2_FiGjhqC9F",
+        "AppClientIDWeb": "6hkemvibul6s6f469e5jmnrvjf",
+        "AppClientID": "7g7t9tba860nf9r7tqk8gti4ip",
+        "HostedUIDomain": "amplifyparkingapp644543dd-644543dd-prod",
+        "IdentityPoolId": "us-east-2:0cf7e5ce-49c1-41ef-a62f-9b9be0b8d116",
+        "IdentityPoolName": "amplifyparkingapp644543dd_identitypool_644543dd__prod",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://d1s5ugagn5woqa.cloudfront.net/auth/\"],\"LogoutURLs\":[\"https://d1s5ugagn5woqa.cloudfront.net/auth/signin/\"]}",
+        "UserPoolName": "amplifyparkingapp644543dd_userpool_644543dd"
+      },
+      "lastPushDirHash": "2iFrwkMg3OAKkKxp7huY52NEiZ4="
+    }
+  },
+  "storage": {
+    "s39340ea55": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyparkingapp-prod-135746-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storages39340ea55"
+      },
+      "lastPushTimeStamp": "2021-06-26T18:05:27.182Z",
+      "output": {
+        "BucketName": "amplifyparkingapp393cba4924de48aab9a796b613fd26135746-prod",
+        "Region": "us-east-2"
+      },
+      "lastPushDirHash": "Z3Nz7korbQRlV1o7MB8ngrZgr3I="
+    }
+  }
+}

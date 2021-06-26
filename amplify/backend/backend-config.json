@@ -1,16 +1,16 @@
 {
-	"auth": {
-		"amplifyparkingapp644543dd": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
-		}
-	},
-	"storage": {
-		"s39340ea55": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation"
-		}
-	}
+  "auth": {
+    "angularparkingapp89c49251": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "smartparkingamplifystorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
 }

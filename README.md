@@ -10,6 +10,14 @@ Smart Parking frontend application for the end users and admin.
 - parkingMasterApiServer: https://vos7443u2h.execute-api.us-east-1.amazonaws.com/prod/parkingmaster/
 - parkingApiServer: https://07wv41pzb4.execute-api.us-east-1.amazonaws.com/prod
 
+## Setup Authentication with existing setup
+
+- Terraform/CloudFormation template will build & deploy the application on S3/CloudFront
+- But we still need to setup Congnito using Amplify ( In future it will be automated )
+  - amplify init -y
+  - amplify push -y
+
+## New Amplify Auth Configuration
 ### Build Authentication 
 
 ```
